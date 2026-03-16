@@ -9,6 +9,48 @@
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
     <style>
+#password-screen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9a9e,#fecfef);
+z-index:100;
+}
+
+.password-box{
+background:rgba(255,255,255,0.3);
+backdrop-filter:blur(10px);
+padding:2rem;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.password-box input{
+padding:10px;
+border:none;
+border-radius:8px;
+margin-top:10px;
+}
+
+.password-box button{
+margin-top:10px;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+}
+
+.password-box button:hover{
+background:#d62828;
+}
         :root {
             --primary-color: #ff4d6d;
             --secondary-color: #ff8fa3;
@@ -420,6 +462,16 @@
 </head>
 
 <body>
+<div id="password-screen">
+
+    <div class="password-box">
+        <h2>Masukin Password Dulu</h2>
+        <input type="password" id="password-input" placeholder="password disini"><br>
+        <button onclick="checkPassword()">Masuk</button>
+        <p id="password-hint"></p>
+    </div>
+
+</div>
 
     <!-- Background Shapes -->
     <div class="bg-shapes">
@@ -461,10 +513,10 @@
         <div class="love-letter">
             <button class="close-btn" onclick="closeLetter()">×</button>
             <h2>Buat Mbak naa,</h2>
-            <p>Makasi yaa udah mau bareng terus ma akuu.</p>
-            <p>mulai dari doa bareng, tidur bareng, care sama aku, dengerin cerita aku, ngasi advice, pokoknya banyak lahh ga keitung kebaikan kamu tuu.</p>
-            <p>Pokoknyaa Thank youu for being someone who supports, understands, and inspires me every day..</p>
-            <p>Happy Valentine's Day! ❤️</p>
+            <p>Hai mbak naa, HBD yaaa</p>
+            <p>udah 18 aja kamu, Panjang umur yaa , jaga Kesehatan, jangan makan pedes, jangan maksa kamu tu gabisa pedes, oh ya sama semoga taun ini kamu keterima unairr aaamiinnnn.</p>
+            <p>Semoga kamu suka ama hadiahnya gatau lagi soalnya mau ngasi apa hehe.</p>
+            <p>Happy BirthDay! ❤️</p>
             <p style="text-align: right;">- From Adekkk</p>
         </div>
     </div>
@@ -611,6 +663,34 @@
     </style>
 
     <script>
+let attempts = 0;
+
+function checkPassword(){
+
+const pass = document.getElementById("password-input").value;
+
+if(pass === "230308"){
+
+document.getElementById("password-screen").style.display="none";
+
+}
+else{
+
+attempts++;
+
+if(attempts === 1){
+document.getElementById("password-hint").innerText="Hint: hari ini";
+}
+else if(attempts === 2){
+document.getElementById("password-hint").innerText="Hint: ultah kamu mbak naa";
+}
+else if(attempts === 3){
+document.getElementById("password-hint").innerText="Hint: oon anjir nih = 230308";
+}
+
+}
+
+}
         let heartsFound = 0;
         const totalHearts = 3;
 
